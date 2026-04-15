@@ -47,7 +47,7 @@
       "category": "core",
       "name": "配置管理系统",
       "description": "集中管理系统配置和用户偏好",
-      "passes": false,
+      "passes": true,
       "test_steps": [
         "验证配置加载",
         "验证配置验证",

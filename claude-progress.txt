@@ -52,3 +52,9 @@
   - feature_list.json 结构验证通过
   - passes 字段更新验证通过
   - 功能状态查询验证通过
+[2026-04-15 14:30] [core-004] 完成配置管理系统
+  - 创建 config/config_manager.py (ConfigManager, ConfigValidator)
+  - 创建 config/default.yaml 默认配置
+  - 创建 config/__init__.py 模块导出
+  - 验证配置加载、配置验证、配置热更新、多环境支持
+  - 21 个测试全部通过

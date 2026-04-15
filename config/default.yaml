@@ -1,0 +1,35 @@
+# DeepResearch 默认配置
+# 环境: default
+
+collection:
+  keywords:
+    - Python
+    - 后端开发
+  exclude_keywords:
+    - 实习
+    - 兼职
+  cities:
+    - 北京
+    - 上海
+    - 深圳
+  salary_range:
+    min: 15000
+    max: 50000
+  max_results_per_source: 50
+
+processing:
+  deduplicate: true
+  similarity_threshold: 0.85
+  normalize_salary: true
+  normalize_location: true
+
+ui:
+  report_format: markdown
+  page_size: 20
+  theme: light
+
+system:
+  request_delay: 1.0
+  max_retries: 3
+  timeout: 30
+  log_level: INFO
