@@ -1,7 +1,7 @@
 {
   "project": "deeep-reasearch",
-  "version": "1.0.0",
-  "description": "Deep Research Agent - 深度研究智能体系统",
+  "version": "2.0.0",
+  "description": "Deep Research Agent - 招聘信息智能采集系统",
   "features": [
     {
       "id": "core-001",
@@ -16,10 +16,19 @@
         "验证 Git 仓库状态"
       ]
     },
-    {
+        {
       "id": "core-002",
       "category": "core",
       "name": "进度追踪系统",
+      "description": "实现 Claude 会话间状态持久化",
+      "passes": true,
+      "test_steps": [
+        "创建 claude-progress.txt",
+        "验证进度写入",
+        "验证进度读取",
+        "验证多会话恢复"
+      ]
+    },": "进度追踪系统",
       "description": "实现 Claude 会话间状态持久化",
       "passes": false,
       "test_steps": [
@@ -43,49 +52,311 @@
       ]
     },
     {
-      "id": "agent-001",
-      "category": "agent",
-      "name": "研究智能体核心",
-      "description": "实现深度研究智能体核心逻辑",
+      "id": "job-001",
+      "category": "job",
+      "name": "意向岗位配置系统",
+      "description": "用户配置期望的岗位关键词、地点、薪资范围等",
       "passes": false,
+      "priority": "high",
       "test_steps": [
-        "验证智能体初始化",
-        "验证研究任务执行",
-        "验证结果存储",
-        "验证错误处理"
+        "验证配置文件结构",
+        "验证多关键词支持",
+        "验证排除词过滤",
+        "验证配置热更新"
       ]
     },
     {
-      "id": "agent-002",
-      "category": "agent",
-      "name": "Web 搜索集成",
-      "description": "集成 Web 搜索能力",
+      "id": "job-002",
+      "category": "job",
+      "name": "BOSS直聘采集器",
+      "description": "抓取BOSS直聘平台职位信息",
       "passes": false,
+      "priority": "high",
       "test_steps": [
-        "验证搜索 API 集成",
         "验证搜索结果解析",
-        "验证结果去重",
-        "验证分页处理"
+        "验证详情页抓取",
+        "验证反爬策略绕过",
+        "验证数据字段完整"
       ]
     },
     {
-      "id": "agent-003",
-      "category": "agent",
-      "name": "研究报告生成",
-      "description": "生成结构化研究报告",
+      "id": "job-003",
+      "category": "job",
+      "name": "拉勾招聘采集器",
+      "description": "抓取拉勾网职位信息",
       "passes": false,
+      "priority": "high",
+      "test_steps": [
+        "验证API接口调用",
+        "验证认证授权处理",
+        "验证分页数据获取",
+        "验证数据字段映射"
+      ]
+    },
+    {
+      "id": "job-004",
+      "category": "job",
+      "name": "猎聘/智联/前程无忧采集器",
+      "description": "抓取主流招聘平台职位信息",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证各平台适配器",
+        "验证统一数据格式",
+        "验证平台差异处理",
+        "验证异常容错"
+      ]
+    },
+    {
+      "id": "job-005",
+      "category": "job",
+      "name": "社交媒体采集器",
+      "description": "监控微信/微博/小红书/抖音招聘帖",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证社交平台API",
+        "验证关键词搜索",
+        "验证内容提取",
+        "验证去重存储"
+      ]
+    },
+    {
+      "id": "job-006",
+      "category": "job",
+      "name": "校园招聘采集器",
+      "description": "采集高校就业网和企业校招信息",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证高校就业网覆盖",
+        "验证企业校招官网",
+        "验证宣讲会信息",
+        "验证截止日期跟踪"
+      ]
+    },
+    {
+      "id": "job-007",
+      "category": "job",
+      "name": "Web搜索补充采集",
+      "description": "通过通用搜索引擎补充职位信息",
+      "passes": false,
+      "priority": "low",
+      "test_steps": [
+        "验证搜索引擎集成",
+        "验证结果解析",
+        "验证去重合并",
+        "验证相关性排序"
+      ]
+    },
+    {
+      "id": "proc-001",
+      "category": "proc",
+      "name": "职位信息标准化",
+      "description": "统一不同来源的职位数据格式",
+      "passes": false,
+      "priority": "high",
+      "test_steps": [
+        "验证字段映射",
+        "验证薪资解析",
+        "验证地点标准化",
+        "验证经验学历提取"
+      ]
+    },
+    {
+      "id": "proc-002",
+      "category": "proc",
+      "name": "智能去重与合并",
+      "description": "识别重复职位并合并更新",
+      "passes": false,
+      "priority": "high",
+      "test_steps": [
+        "验证相似度算法",
+        "验证去重准确率",
+        "验证合并策略",
+        "验证更新检测"
+      ]
+    },
+    {
+      "id": "proc-003",
+      "category": "proc",
+      "name": "关键词提取与分类",
+      "description": "自动提取职位关键词并分类",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证NER提取",
+        "验证技能标签",
+        "验证行业分类",
+        "验证岗位层级识别"
+      ]
+    },
+    {
+      "id": "proc-004",
+      "category": "proc",
+      "name": "发布时间线重建",
+      "description": "重建职位发布时间序列",
+      "passes": false,
+      "priority": "low",
+      "test_steps": [
+        "验证时间戳提取",
+        "验证新鲜度计算",
+        "验证时间线展示",
+        "验证过期检测"
+      ]
+    },
+    {
+      "id": "ui-001",
+      "category": "ui",
+      "name": "报告生成器",
+      "description": "生成结构化招聘信息报告",
+      "passes": false,
+      "priority": "high",
       "test_steps": [
         "验证报告模板",
-        "验证内容生成",
-        "验证格式导出",
-        "验证多格式支持"
+        "验证Markdown导出",
+        "验证HTML导出",
+        "验证PDF导出"
+      ]
+    },
+    {
+      "id": "ui-002",
+      "category": "ui",
+      "name": "筛选与搜索",
+      "description": "多维度筛选和搜索职位",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证薪资筛选",
+        "验证地点筛选",
+        "验证经验筛选",
+        "验证组合筛选"
+      ]
+    },
+    {
+      "id": "ui-003",
+      "category": "ui",
+      "name": "收藏与对比",
+      "description": "收藏感兴趣的职位并对比",
+      "passes": false,
+      "priority": "low",
+      "test_steps": [
+        "验证收藏功能",
+        "验证多职位对比",
+        "验证差异高亮",
+        "验证导出分享"
+      ]
+    },
+    {
+      "id": "sys-001",
+      "category": "sys",
+      "name": "增量更新引擎",
+      "description": "支持增量采集和全量覆盖切换",
+      "passes": false,
+      "priority": "high",
+      "test_steps": [
+        "验证增量检测",
+        "验证变更追踪",
+        "验证更新记录",
+        "验证回滚机制"
+      ]
+    },
+    {
+      "id": "sys-002",
+      "category": "sys",
+      "name": "代理IP池",
+      "description": "管理代理IP支持分布式采集",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证代理轮换",
+        "验证IP可用性",
+        "验证失败重试",
+        "验证代理评分"
+      ]
+    },
+    {
+      "id": "sys-003",
+      "category": "sys",
+      "name": "请求频率控制",
+      "description": "智能控制各平台请求频率",
+      "passes": false,
+      "priority": "high",
+      "test_steps": [
+        "验证限流策略",
+        "验证平台差异化",
+        "验证自适应调整",
+        "验证熔断机制"
+      ]
+    },
+    {
+      "id": "sys-004",
+      "category": "sys",
+      "name": "断点续传",
+      "description": "采集中断后支持续传",
+      "passes": false,
+      "priority": "medium",
+      "test_steps": [
+        "验证检查点保存",
+        "验证中断恢复",
+        "验证任务队列",
+        "验证超时处理"
+      ]
+    },
+    {
+      "id": "sys-005",
+      "category": "sys",
+      "name": "多会话持久化",
+      "description": "跨会话保持采集状态",
+      "passes": false,
+      "priority": "high",
+      "test_steps": [
+        "验证状态序列化",
+        "验证会话恢复",
+        "验证进度保存",
+        "验证状态一致性"
+      ]
+    },
+    {
+      "id": "sys-006",
+      "category": "sys",
+      "name": "定时任务调度",
+      "description": "支持周期性自动采集",
+      "passes": false,
+      "priority": "low",
+      "test_steps": [
+        "验证定时触发",
+        "验证间隔配置",
+        "验证并发控制",
+        "验证任务日志"
+      ]
+    },
+    {
+      "id": "sys-007",
+      "category": "sys",
+      "name": "通知推送",
+      "description": "采集到新职位时推送通知",
+      "passes": false,
+      "priority": "low",
+      "test_steps": [
+        "验证邮件通知",
+        "验证webhook推送",
+        "验证通知过滤",
+        "验证频率控制"
       ]
     }
   ],
   "metadata": {
     "created": "2026-04-15",
     "last_updated": "2026-04-15",
-    "total_features": 6,
-    "completed_features": 3
+    "total_features": 27,
+    "completed_features": 2,
+    "categories": {
+      "core": 4,
+      "job": 7,
+      "proc": 4,
+      "ui": 3,
+      "sys": 7
+    }
   }
 }
