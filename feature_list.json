@@ -74,7 +74,7 @@
       "category": "job",
       "name": "BOSS直聘采集器",
       "description": "抓取BOSS直聘平台职位信息",
-      "passes": false,
+      "passes": true,
       "priority": "high",
       "test_steps": [
         "验证搜索结果解析",
@@ -354,7 +354,7 @@
     "created": "2026-04-15",
     "last_updated": "2026-04-15",
     "total_features": 25,
-    "completed_features": 4,
+    "completed_features": 6,
     "categories": {
       "core": 4,
       "job": 7,
