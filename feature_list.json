@@ -34,7 +34,7 @@
       "category": "core",
       "name": "功能列表管理",
       "description": "维护结构化功能需求列表",
-      "passes": false,
+      "passes": true,
       "test_steps": [
         "创建 feature_list.json",
         "验证功能列表结构",
@@ -354,7 +354,7 @@
     "created": "2026-04-15",
     "last_updated": "2026-04-15",
     "total_features": 25,
-    "completed_features": 2,
+    "completed_features": 3,
     "categories": {
       "core": 4,
       "job": 7,
