@@ -60,7 +60,7 @@
       "category": "job",
       "name": "意向岗位配置系统",
       "description": "用户配置期望的岗位关键词、地点、薪资范围等",
-      "passes": false,
+      "passes": true,
       "priority": "high",
       "test_steps": [
         "验证配置文件结构",
@@ -354,7 +354,7 @@
     "created": "2026-04-15",
     "last_updated": "2026-04-15",
     "total_features": 25,
-    "completed_features": 3,
+    "completed_features": 4,
     "categories": {
       "core": 4,
       "job": 7,
