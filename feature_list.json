@@ -1,0 +1,91 @@
+{
+  "project": "deeep-reasearch",
+  "version": "1.0.0",
+  "description": "Deep Research Agent - 深度研究智能体系统",
+  "features": [
+    {
+      "id": "core-001",
+      "category": "core",
+      "name": "项目基础架构",
+      "description": "建立项目基础结构和配置",
+      "passes": true,
+      "test_steps": [
+        "验证 Python 环境",
+        "验证依赖安装",
+        "验证测试可运行",
+        "验证 Git 仓库状态"
+      ]
+    },
+    {
+      "id": "core-002",
+      "category": "core",
+      "name": "进度追踪系统",
+      "description": "实现 Claude 会话间状态持久化",
+      "passes": false,
+      "test_steps": [
+        "创建 claude-progress.txt",
+        "验证进度写入",
+        "验证进度读取",
+        "验证多会话恢复"
+      ]
+    },
+    {
+      "id": "core-003",
+      "category": "core",
+      "name": "功能列表管理",
+      "description": "维护结构化功能需求列表",
+      "passes": false,
+      "test_steps": [
+        "创建 feature_list.json",
+        "验证功能列表结构",
+        "验证 passes 字段更新",
+        "验证功能状态查询"
+      ]
+    },
+    {
+      "id": "agent-001",
+      "category": "agent",
+      "name": "研究智能体核心",
+      "description": "实现深度研究智能体核心逻辑",
+      "passes": false,
+      "test_steps": [
+        "验证智能体初始化",
+        "验证研究任务执行",
+        "验证结果存储",
+        "验证错误处理"
+      ]
+    },
+    {
+      "id": "agent-002",
+      "category": "agent",
+      "name": "Web 搜索集成",
+      "description": "集成 Web 搜索能力",
+      "passes": false,
+      "test_steps": [
+        "验证搜索 API 集成",
+        "验证搜索结果解析",
+        "验证结果去重",
+        "验证分页处理"
+      ]
+    },
+    {
+      "id": "agent-003",
+      "category": "agent",
+      "name": "研究报告生成",
+      "description": "生成结构化研究报告",
+      "passes": false,
+      "test_steps": [
+        "验证报告模板",
+        "验证内容生成",
+        "验证格式导出",
+        "验证多格式支持"
+      ]
+    }
+  ],
+  "metadata": {
+    "created": "2026-04-15",
+    "last_updated": "2026-04-15",
+    "total_features": 6,
+    "completed_features": 3
+  }
+}
